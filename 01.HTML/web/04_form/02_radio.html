@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>02 radio</title>
+</head>
+<body>
+
+<!-- form input type 중 radio 타입 -->
+<!-- form[action=""]>(input[type="radio" name="gender"])*2+input[type="submit"]+input[type="reset"] -->
+<form name="choiceForm" action="">
+	성별 :
+	<input type="radio" name="gender" value="M" checked="checked"/> 남
+	<input type="radio" name="gender" value="F"/> 여
+	<hr />
+	학기 :
+	<br />
+<!-- (input[type="radio" name="semester" value="$"]{$학기}+br)*8 -->
+	<input type="radio" name="semester" value="1" checked="checked"/>1학기
+	<br />
+	<input type="radio" name="semester" value="2" />2학기
+	<br />
+	<input type="radio" name="semester" value="3" />3학기
+	<br />
+	<input type="radio" name="semester" value="4" />4학기
+	<br />
+	<input type="radio" name="semester" value="5" />5학기
+	<br />
+	<input type="radio" name="semester" value="6" />6학기
+	<br />
+	<input type="radio" name="semester" value="7" />7학기
+	<br />
+	<input type="radio" name="semester" value="8" />8학기
+	<br />
+		
+	
+	<input type="submit" value="전송하기"/> &nbsp;
+	<input type="reset" value="초기화"/>
+</form>
+<!-- radio 타입
+	 ---------------------------------------------
+     1.여러개의 선택지 중에서
+	       중복 선택하지 못하는 입력을 받아야 할 때 사용.
+	 
+	 2. radio의 name 속성 값을 동일하게 주면 하나의
+	         그룹으로 묶을 수 있다.
+	 
+	 3. radio 의 value 속성을 모두 다르게 주어서 작성
+	 
+	 4. radio 의 value 속성을 다르게 주지 않으면
+	          어떤 것을 선택해도 기본값인 on 값이 전달 된다.
+	  
+	 5. 초기선택을 지정하고 싶을 때 checked="checked" 옵션 사용
+	 ---------------------------------------------
+ -->
+</body>
+</html>
