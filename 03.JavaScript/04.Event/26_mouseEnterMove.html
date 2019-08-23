@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>26 이벤트 : mouseEnter, Move</title>
+<style type="text/css">
+	div {
+		width: 150px;
+		height: 150px;
+		padding: 20px;
+		margin: 5px;
+		background-color: lightgrey;
+	}
+</style>
+<script type="text/javascript">
+	// 마우스엔터 이벤트 처리 함수
+	function myMouseEnter() {
+		document.getElementById("contents").style.backgroundColor = "magenta";
+	}
+	// 마우스무브 이벤트 처리 함수
+	function myMouseMove() {
+		document.getElementById("contents2").style.backgroundColor = "cyan";
+	}
+	
+	// 마우스리브 이벤트 처리 함수
+	function myMouseLeave() {
+		document.getElementById("contents").style.backgroundColor = "lightgrey";
+	}
+	
+	// contents3 아이디를 가진 div에
+	// 마우스리브 이벤트 발생시 처리 함수
+	function myMouseLeave3(input.id) {
+// 		console.log(input);
+		
+		alert(input);
+		document.getElementById(input.id).style.backgroundColor = "lightgrey";
+	}
+	
+	// 마우스엔터 이벤트 발생 처리 함수
+	function myMouseEnter3(input) {
+		console.log(input);
+		
+		document.getElementByid
+	}
+	
+</script>
+</head>
+<body>
+	<h3>마우스 엔터, 무브 이벤트</h3>
+	<hr />
+	<div id="contents" onmouseenter="myMouseEnter();" onmouseleave="myMouseLeave()">
+		이 영에 마우스가 들어오면 배경색이
+		magenta 로 변합니다 <br />
+		마우스가 떠나면 배경색이 lightgrey로 돌아갑니다.
+	</div>
+	<div id="contents2" onmousemove="myMyouseMove()">
+		이 영역에서 마우스가 움직이면 배경색이
+		cyan 으로 변합니다. <br />
+	</div>
+	<div id="contents3" onmouseenter="myMouseEnter3(this);" onmouseleave="myMouseLeave3(this.id);">
+		이 영역의 아이디는 contents3 입니다.
+	</div>
+
+</body>
+</html>
