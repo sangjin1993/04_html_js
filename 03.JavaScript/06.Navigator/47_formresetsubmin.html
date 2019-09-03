@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>47 Form : reset(), submit() 함수</title>
+<script type="text/javascript">
+	function myReset() {
+		document.logForm.reset();
+		alert("입력 값이 초기화 되었습니다.")
+	}
+	
+	function mySubmit() {
+		document.loginForm.submit();
+		alert("입력 값이 전송되었습니다.\n" + "아이디" + document.logForm.userId.value + "\n" + "비밀번호" + document.logForm.userPassword.value);
+	}
+</script>
+</head>
+<body>
+	<form action="" name="logForm">
+		<input type="text" name="userId" />
+		<br />
+		<input type="password" name="userPassword" />
+		<br />
+		<input type="button" value="초기화" onclick="myReset();"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="button" value="전송" onclick="mySubmit();"/>
+	</form>
+</body>
+</html>

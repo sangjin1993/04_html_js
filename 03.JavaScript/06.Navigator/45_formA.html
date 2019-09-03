@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>45 forms 객체</title>
+</head>
+<body>
+<!-- 	form[name="myForm"]>input*4+select+br+textarea+br+input -->
+	<form action="next.jsp" name="myForm" methods="post">
+		<input type="text" />
+		<input type="text" />
+		<input type="text" />
+		<input type="text" />
+		<select name="mySelect">
+			<option value="1">옵션1</option>
+			<option value="2">옵션2</option>
+			<option value="3">옵션3</option>
+			<option value="4">옵션4</option>
+		</select>
+		<br />
+		긴글 입력 박스 :
+		<textarea name="myTextarea" cols="30" rows="10"></textarea>
+		<br />
+		버튼 : <input type="text" />
+	</form>
+	
+	<script type="text/javascript">
+		var myForm = document.myForm; // document.forms[0]
+		document.write("<h3>폼 정보 출력</h3>");
+		document.write("<hr />");
+		document.write("Form.name=" + myForm.name + "<br />");
+		document.write("form.action=" + myForm.action + "<br />");
+		document.write("form.method=")
+		document.write("<hr />");
+		
+		document.write("<h3>폼 내부 인풋 정보 출력</h3>");
+		document.write("<hr />");
+		// form 의 하위 엘리먼트를(input, select, textarea 등) 을
+		// 1. elements 라는 이름의 배열로 접근 가능
+		// 2. 각 엘리먼트에 name 속성이 주어진 경우 해당 이름으로 접근 가능
+		for (var idx = 0; idx < myForm.element.length; idx++) {
+			document.write("elements[" + idx + "]" + myForm.elements[idx].name + "," + myForm.elements[idx].type + "<br />");
+		}
+		
+		document.write("<h3>폼 내부 인풋(폼 하위 엘리먼트) 정보 출력, name 속성 사용</h3>");
+		document.write("<hr />");
+		// form 의 하위 엘리먼트를 name 속성으로 직접 출력
+		document.write("폼의 첫 요소 name=myText 에 접근:" + myForm.myText.type + "<br />");
+	</script>
+</body>
+</html>

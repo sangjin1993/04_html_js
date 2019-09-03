@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>48 radio 객체</title>
+<script type="text/javascript">
+	
+	// radio 객체에 접근할 때 주의할 점 : 동일한 이름의 객체가 여러개 라는 것
+	// f12 개발자 도구에서 : console.log(document.rdForm.mailing) 출력하여
+	// 배열로 받아지는 RadioNodeList확인
+	radioValue = document.rdForm.mailing.value;
+	
+	function choice() {
+		// mailing 라이도 중 어떤 것이 체크되어 있는지 판단하여
+		// 가입, 해지를 결정
+		
+		if (radioValue == "join") {
+			alert(radioValue + "메일링 리스트에 가입되었습니다.");
+		} else {
+			alert(radioValue + "메일링 리스트가 해지 되었습니다.");
+		}
+		
+		joinChecked = document.rdForm.mailing[0].checked
+		if (joinChecked) {
+			alert(joinChecked + "메일링 리스트에 가입되었습니다.");
+		} else {
+			alert(joinChecked + "메일링 리스트가 해지 되었습니다.");
+		}
+	}
+</script>
+</head>
+<body>
+<!-- 	form[name="rdForm"]>(input[type="radio" name="mailing" id=""]+label[for=""]+br)*2+input[type="button" value="가입 및 해지" onclick="choice"] -->
+	<form action="" name="rdForm">
+		<input type="radio" name="mailing" id="join" value="join" 
+			   checked="checked"/>
+		<label for="join">메일링 리스트 가입</label>
+		<br />
+		<input type="radio" name="mailing" id="cancle" value="cancle"/>
+		<label for="cancle">메일링 리스트 해지</label>
+		<br />
+		<input type="button" value="가입 및 해지" onclick="choice();" />
+	</form>
+</body>
+</html>

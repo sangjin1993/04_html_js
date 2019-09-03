@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>50 select 객체</title>
+<script type="text/javascript">	
+
+	// colorForm2>colorChoose2 셀렉트에 선택된
+	// 색생으로 문서 배경색을 변경하는 함수
+	function changeBgColor2() {
+		document.bgColor = document.colarForm2.colorChoose2.value;
+	}
+	
+	// colorForm3>colorChoose3 셀렉트가
+	// 선택이 변경되는 onchage 이벤트 발생시 처리 함수
+	function changeBgColor3(color) {
+		document.bgColor = color;
+	}
+	
+	// colorForm4>colorChoose4 셀렉트의 선택이 변경되는
+	function changeBgColor4() {
+		// 매개변수를 명시하지 않고 
+		// Function 에 종속되어 있는 Argument 객체배열을 사용하여 배경색 변경
+		document.bgColor = arguments[0];
+	}
+</script>
+</head>
+<body>
+<!-- (form[name="colarForm$"]>select[name="colorChoose$" onChange=""]>(option[value=""])*9)*4 -->
+
+	<form action="" name="colarForm1">
+		<select name="colorChoose1" id="" onchange="document.bgColor=this.value">
+			<option value="blue">파랑색</option>
+			<option value="skyblue">하늘색</option>
+			<option value="aquamarine">아쿠아마린</option>
+			<option value="chocolate">초콜릿</option>
+			<option value="hotpink">핫핑크</option>
+			<option value="darkred">다크레드</option>
+			<option value="gold">골드</option>
+			<option value="#FFFFFF" selected="selected">흰색</option>
+			<option value="#00FF00">그린</option>
+		</select>
+	</form>
+	
+	<hr />
+	
+	<form action="" name="colarForm2">
+		<select name="colorChoose2" id="" onchange="">
+			<option value="blue">파랑색</option>
+			<option value="skyblue">하늘색</option>
+			<option value="aquamarine">아쿠아마린</option>
+			<option value="chocolate">초콜릿</option>
+			<option value="hotpink">핫핑크</option>
+			<option value="darkred">다크레드</option>
+			<option value="gold">골드</option>
+			<option value="#FFFFFF" selected="selected">흰색</option>
+			<option value="#00FF00">그린</option>
+		</select>
+		<br />
+		<input type="button" value="배경색 변경"
+			   onclick="changeBgColor2();" />
+	</form>
+	
+	<hr />
+	
+	<form action="" name="colarForm3">
+		<select name="colorChoose3" onchange="changeBgColor3(this.value);">
+			<option value="blue">파랑색</option>
+			<option value="skyblue">하늘색</option>
+			<option value="aquamarine">아쿠아마린</option>
+			<option value="chocolate">초콜릿</option>
+			<option value="hotpink">핫핑크</option>
+			<option value="darkred">다크레드</option>
+			<option value="gold">골드</option>
+			<option value="#FFFFFF" selected="selected">흰색</option>
+			<option value="#00FF00">그린</option>
+		</select>
+	</form>
+	
+	<hr />
+	
+	<form action="" name="colarForm4">
+		<select name="colorChoose4" onchange="changeBgColor4(this.value);">
+			<option value="blue">파랑색</option>
+			<option value="skyblue">하늘색</option>
+			<option value="aquamarine">아쿠아마린</option>
+			<option value="chocolate">초콜릿</option>
+			<option value="hotpink">핫핑크</option>
+			<option value="darkred">다크레드</option>
+			<option value="gold">골드</option>
+			<option value="#FFFFFF" selected="selected">흰색</option>
+			<option value="#00FF00">그린</option>
+		</select>
+	</form>
+
+</body>
+</html>
