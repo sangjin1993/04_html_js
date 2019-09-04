@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>55 Member 클래스를 활용한 구성원 관리</title>
+<script type="text/javascript">
+	Member = function(userId, userName, address) {
+		this.userId = userId;
+		this.userName = userName;
+		this.address = address;
+	};
+	
+	Member.prototype = {
+			getUserId:function() {
+				return this.userId;
+			},
+			getUserName:function() {
+				return this.userName;
+			},
+			getAddress:function() {
+				return this.address;
+			},
+			setUserId:function(userId) {
+				this.userId = userId;
+			},
+			setUserName:function(userName) {
+				this.userName = userName;
+			},
+			setAddress:function(address) {
+				this.address = address;
+			},
+			getFullInfo:function() {
+				return this.userId + ":" + this.userName + ":" + this.address;
+			}
+		};
+	
+// 	var m001 = new Member("M001", "송종호", "포항시");
+// 	var m002 = new Member("M002", "박상용", "아산시");
+// 	var m003 = new Member("M003", "김지후", "수원시");
+// 	var m004 = new Member("M004", "김지원", "포천시");
+// 	var m005 = new Member("M005", "조기현", "수원시");
+// 	var m006 = new Member("M006", "강유환", "천안시");
+	
+// 	members = new Array(m001, m002, m003, m004, m005, m006);
+	
+	members = new Array(
+			new Member("M001", "송종호", "포항시")
+		  , new Member("M002", "박상용", "아산시")
+		  , new Member("M003", "김지후", "수원시")
+		  , new Member("M004", "김지원", "포천시")
+		  , new Member("M005", "조기현", "수원시")
+		  , new Member("M006", "강유환", "천안시")
+			);
+	
+	// 목록 폼에 구성원 정보 동적으로 그리는 함수
+	function displayMembers() {
+		for (var idx = 0; idx < members.length; idx++) {
+			document.write("<tr>");
+				document.write("<td><input type='radio' name='detail' onclick='selectMember();' /></td>");
+				document.write("<td>" + members[idx].getUserId() + "</td>");
+				document.write("<td>" + members[idx].getUserName() + "</td>");
+				document.write("<td>" + members[idx].getAddress() + "</td>");
+			
+			document.write("</tr>");
+		}
+	}
+	
+	// 셀렉트 박스의 옵션을 동적으로 그리는 함수
+	function displayOptions() {
+		for (var idx = 0; idx < members.length; idx++) {
+			document.write("<option value='" + members[idx].getUserId() + "'>" + members[idx].getUserName() + "</option>")
+		}
+	}
+	
+	// 목록 폼에서 라디오 클릭시 이벤트 처리 함수
+	function selectMember() {
+		for (var idx = 0; idx < members.length; idx++) {
+			if (document.listForm.detail[idx].checked) {
+				document.detailForm.userId.value = members[idx].getUserId();
+				document.detailForm.userName.value = members[idx].getUserName();
+				document.detailForm.address.value = members[idx].getAddress();
+				break;
+			}
+		}
+	}
+	
+	// 구성원 이름을 선택하는 셀렉트 박스의
+	// onchange 이벤트 핸들러 처리 함수
+	function searchMember() {
+		for (var idx = 0; idx < members.length; idx++) {
+			if(members[idx].getUserId() == document.searchForm.selectId.value) {
+				document.detailForm.userId.value = members[idx].getUserId();
+				document.detailForm.userName.value = members[idx].getUserName();
+				document.detailForm.address.value = members[idx].getAddress();
+				break;
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<h3>Member 클래스를 활용한 구성원 관리</h3>
+	<hr />
+	<!-- 
+		1. Member 클래스 정의 : protorype + JSON 사용
+		2. Member 객체가 들어가는 Array 생성.
+		     배열 변수 이름 : members
+		3. m001 ~ m006 의 정보를 사용하여 members 배열을 생성
+		4. 33_it_univ 코드 참고 
+			(1) 상단에 상세정보를 확인하는 표
+			(2) radio 버튼이 있는 목록 출력표
+			(3) 구성원 1명을 선택할 수 있는 select
+			(4) 각 요소에 맞는 이벤트 핸들러 함수 등 작성
+	 -->
+	
+	<form action="" name="detailForm">
+	<table border="1">
+		<tr>
+			<td>아이디</td>
+			<td>
+				<input type="text" name="userId">
+			</td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td>
+				<input type="text" name="userName" />
+			</td>
+		</tr>
+		<tr>
+			<td>주소</td>
+			<td>
+				<input type="text" name="address" />
+			</td>
+		</tr>
+	</table>
+	</form>
+	
+	<hr />
+	
+	<form action="" name="listForm">
+	<table>
+		<tr>
+			<th></th>
+			<th>아이디</th>
+			<th>이름</th>
+			<th>주소</th>
+		</tr>
+		<!-- 스크립트로 배열에 있는 값을 사용하여 
+		     동적으로 테이블 그려 삽입 -->
+		<script type="text/javascript">
+			displayMembers();
+		</script>
+	</table>
+	</form>
+	
+	<!-- 이름을 선택하는 셀렉트 박스 -->
+	<hr>
+	<form action="" name="searchForm">
+		구성원 검색:
+		<select name="selectId" 
+		        onchange="searchMember();">
+			<option value="">===구성원 선택===</option>
+			<script type="text/javascript">
+				displayOptions();
+			</script>
+		</select>
+	</form>
+</body>
+</html>
